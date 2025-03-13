@@ -1,0 +1,20 @@
+queue: queue-b
+jobSetId: job-set-1
+jobs:
+  - priority: 0
+    podSpec:
+      terminationGracePeriodSeconds: 0
+      restartPolicy: Never
+      containers:
+        - name: ubuntu
+          image: ubuntu
+          command: ["/bin/bash", "-c"]
+          args:      
+            - "apt-get update && apt-get install -y vim && echo 'Hello World!'"
+          resources:
+            limits:
+              memory: 128Mi
+              cpu: 0.2
+            requests:
+              memory: 128Mi
+              cpu: 0.2
